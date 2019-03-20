@@ -2,7 +2,7 @@
 reads data from the osu! editor for use in mapping tools.
 
 > available methods:
-
+```
 SetProcess("osu!", 0) matches the 0th process named "osu!...".
 SetEditor() detects the active editor within the selected process. will throw an error if not editing standard.
 
@@ -21,9 +21,9 @@ ReReadObjects() finds then reads, as above.
 ReadAll() SetHom, ReadHOM, ReadBeatmap, SetControlPoints, ReadControlPoints, SetObjects, ReadObjects.
 
 EditorTime() gets the timeline position for the current editor.
-
+```
 > public classes:
-
+```
 EditorReader
   objectRadius
   stackOffset
@@ -79,3 +79,4 @@ HitObject
   IsNewCombo()
   IsSpinner()
   ToString()
+```
