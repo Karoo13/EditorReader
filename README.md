@@ -1,28 +1,23 @@
 # EditorReader
 reads data from the osu! editor for use in mapping tools.
 
-> available methods:
+# how to use
 ```
+namespace Editor_Reader
+
 SetProcess("osu!", 0) matches the 0th process named "osu!...".
-SetEditor() detects the active editor within the selected process. will throw an error if not editing standard.
 
-SetHOM() finds the hit object manager for the current editor.
-ReadHOM() reads objectRadius, stackOffset, current beatmap, and objects list for the current HOM.
-ReadBeatmap() reads difficulty settings and filename for the current beatmap.
+FetchHOM() for the current process, will find the editor and get and read the editor's hit object manager.
+  EditorTime() for the current editor, gets the timeline position.
+  FetchObjects() for the current HOM, will get all hit objects.
+  FetchBeatmap() for the current HOM, will get the beatmap properties.
+    FetchControlPoints() for the current beatmap, will get all control (timing) points.
 
-SetControlPoints() finds all control points for the current beatmap.
-ReadControlPoints() reads all found control points.
-ReReadControlPoints() finds then reads, as above.
+FetchAll() will do the above fetch operations. since some fetch operations depend on others being up to date, it is safer but slower to fetch all.
 
-SetObjects() finds all objects for the current HOM.
-ReadObjects() reads all found objects.
-ReReadObjects() finds then reads, as above.
-
-ReadAll() SetHom, ReadHOM, ReadBeatmap, SetControlPoints, ReadControlPoints, SetObjects, ReadObjects.
-
-EditorTime() gets the timeline position for the current editor.
+if it is unclear how to use the reader, there is an example script included for your reference.
 ```
-> public classes:
+# public classes:
 ```
 EditorReader
   objectRadius
@@ -79,4 +74,33 @@ HitObject
   IsNewCombo()
   IsSpinner()
   ToString()
+```
+# available methods:
+```
+SetProcess("osu!", 0) matches the 0th process named "osu!...".
+
+SetEditor() detects the active editor within the selected process. will throw an error if not editing standard.
+EditorExists() checks if the current editor is still loaded in memory.
+EditorClosed() checks if the current editor (assuming it exists) has been closed.
+EditorNeedsReload() checks if the current editor is closed or does not exist.
+
+SetHOM() finds the hit object manager for the current editor.
+ReadHOM() reads objectRadius, stackOffset, and objects list for the current HOM.
+FetchHOM() sets editor if needed, and then sets and reads HOM.
+
+SetBeatmap() finds the beatmap for the current HOM.
+ReadBeatmap() reads difficulty settings and filename for the current beatmap.
+FetchBeatmap() finds then reads, as above.
+
+SetControlPoints() finds all control points for the current beatmap.
+ReadControlPoints() reads all found control points.
+FetchControlPoints() finds then reads, as above.
+
+SetObjects() finds all objects for the current HOM.
+ReadObjects() reads all found objects.
+FetchObjects() finds then reads, as above.
+
+FetchAll() SetHom, ReadHOM, ReadBeatmap, SetControlPoints, ReadControlPoints, SetObjects, ReadObjects.
+
+EditorTime() gets the timeline position for the current editor.
 ```
