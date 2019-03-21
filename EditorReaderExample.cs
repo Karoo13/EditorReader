@@ -1,5 +1,5 @@
 using System;
-using EditorReaderNamespace;
+using Editor_Reader;
 
 public class EditorReaderExample
 {
@@ -7,8 +7,7 @@ public class EditorReaderExample
     {
         EditorReader reader = new EditorReader();
         reader.SetProcess("osu!", 0);
-        reader.SetEditor();
-        reader.ReadAll();
+        reader.FetchAll();
 
         Console.WriteLine(reader.ContainingFolder);
         Console.WriteLine(reader.Filename);
