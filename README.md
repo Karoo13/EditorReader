@@ -13,7 +13,8 @@ FetchHOM() for the current process, will find the editor and get and read the ed
   FetchBeatmap() for the current HOM, will get the beatmap properties.
     FetchControlPoints() for the current beatmap, will get all control (timing) points.
 
-FetchAll() will do the above fetch operations. since some fetch operations depend on others being up to date, it is safer but slower to fetch all.
+FetchAll() will do the above fetch operations. since some fetch operations
+  depend on others being up to date, it is safer but slower to fetch all.
 
 if it is unclear how to use the reader, there is an example script included for your reference.
 ```
