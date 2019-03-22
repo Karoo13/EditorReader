@@ -79,9 +79,9 @@ HitObject
 ```
 ## available methods:
 ```
-SetProcess("osu!", 0) matches the 0th process named "osu!...".
+SetProcess("osu!", 0) matches the 0th process named "osu!...". will throw an error if not in osu.
 
-SetEditor() detects the active editor within the selected process. will throw an error if not editing standard.
+SetEditor() detects the active editor within the selected process. will throw an error if not in editor.
 EditorExists() checks if the current editor is still loaded in memory.
 EditorClosed() checks if the current editor (assuming it exists) has been closed.
 EditorNeedsReload() checks if the current editor is closed or does not exist.
