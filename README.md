@@ -76,7 +76,7 @@ HitObject
   IsSpinner()
   ToString()
 ```
-# available methods:
+## available methods:
 ```
 SetProcess("osu!", 0) matches the 0th process named "osu!...".
 
