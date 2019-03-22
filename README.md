@@ -1,7 +1,7 @@
 # EditorReader
 reads data from the osu! editor for use in mapping tools.
 
-# how to use
+## how to use
 ```
 namespace Editor_Reader
 
@@ -18,7 +18,7 @@ FetchAll() will do the above fetch operations. since some fetch operations
 
 if it is unclear how to use the reader, there is an example script included for your reference.
 ```
-# public classes:
+## public classes:
 ```
 EditorReader
   objectRadius
@@ -43,7 +43,7 @@ ControlPoint
   SampleSet
   TimeSignature
   Volume
-  KiaiMode
+  EffectFlags
   TimingChange
   ToString()
 
