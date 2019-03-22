@@ -1,10 +1,13 @@
 using System;
+using System.Threading;
 using Editor_Reader;
 
 public class EditorReaderExample
 {
     public static void Main()
     {
+        Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+        
         EditorReader reader = new EditorReader();
         reader.SetProcess("osu!", 0);
         reader.FetchAll();
@@ -32,5 +35,7 @@ public class EditorReaderExample
                 reader.hitObjects[i].DeStack(reader.stackOffset);
                 Console.WriteLine(reader.hitObjects[i].ToString());
             }
+
+        Console.ReadLine();
     }
 }
