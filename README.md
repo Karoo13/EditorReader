@@ -74,6 +74,7 @@ HitObject
     SampleSetAdditionsList
   IsNewCombo()
   IsSpinner()
+  IsHoldNote()
   ToString()
 ```
 ## available methods:
