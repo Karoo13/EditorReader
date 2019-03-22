@@ -4,6 +4,7 @@ reads data from the osu! editor for use in mapping tools.
 ## how to use
 ```
 namespace Editor_Reader
+compile as -platform:x86
 
 SetProcess("osu!", 0) matches the 0th process named "osu!...".
 
