@@ -50,6 +50,7 @@ ControlPoint
 
 HitObject
   DeStack(stackOffset) move the object to its pre-stacking position, do this before saving to file.
+  Round() round all coordinates to nearest integer.
   X
   Y
   StartTime
@@ -103,7 +104,7 @@ SetObjects() finds all objects for the current HOM.
 ReadObjects() reads all found objects.
 FetchObjects() finds then reads, as above.
 
-FetchAll() SetHom, ReadHOM, ReadBeatmap, SetControlPoints, ReadControlPoints, SetObjects, ReadObjects.
+FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects.
 
 EditorTime() gets the timeline position for the current editor.
 ```
