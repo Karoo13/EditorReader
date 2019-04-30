@@ -124,7 +124,7 @@ ReadSelected() reads all found objects.
 FetchSelected() finds then reads, as above.
 
 ReadHovered() reads the hovered object for the current composer, returns whether an object is hovered.
-ReadBookmarks() reads bookmarks into int array.
+ReadBookmarks() reads bookmarks for the current HOM into int array.
 SnapPosition() float coordinates of snap position for the current composer.
 EditorTime() gets the timeline position for the current editor.
 
