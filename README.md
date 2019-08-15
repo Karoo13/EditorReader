@@ -6,19 +6,16 @@ reads data from the osu! editor for use in mapping tools.
 namespace Editor_Reader
 compile as -platform:x86
 
-SetProcess("osu!", 0) matches the 0th process named "osu!...".
-
 FetchHOM() for the current process, will find the editor and get the editor's hit object manager and composer.
   EditorTime() for the current editor, gets the timeline position.
   FetchObjects() for the current HOM, will get all hit objects.
-  FetchClipboard() for the current composer, gets clipboard objects.
-  FetchSelected() for the current composer, gets selected objects.
   FetchBeatmap() for the current HOM, will get the beatmap properties.
     FetchControlPoints() for the current beatmap, will get all control (timing) points.
+  FetchBookmarks() for the current HOM, will get the bookmarks.
 
 FetchAll() will do the above fetch operations. since some fetch operations
   depend on others being up to date, it is safer but slower to fetch all.
-  does not fetch clipboard or selected.
+  does not fetch clipboard, selected, or hovered.
 
 if it is unclear how to use the reader, there is an example script included for your reference.
 ```
@@ -26,6 +23,7 @@ if it is unclear how to use the reader, there is an example script included for 
 ```
 EditorReader
   autoDeStack defaults to true, when reading an object, destack it.
+  autoRound defaults to false, when reading an object, round it.
   objectRadius
   stackOffset
   ContainingFolder
@@ -60,7 +58,7 @@ ControlPoint
   ToString()
 
 HitObject
-  DeStack(stackOffset) move the object to its pre-stacking position, do this before saving to file.
+  DeStack(stackOffset) move the object to its pre-stacking position.
   Round() round all coordinates to nearest integer.
   X
   Y
@@ -92,16 +90,16 @@ HitObject
 ```
 ## available methods:
 ```
-SetProcess("osu!", 0) matches the 0th process named "osu!...". will throw an error if not in osu.
+SetProcess(n = 0) matches the nth process named "osu!..." with module "osu!.exe". will throw an error if not in osu.
+ProcessNeedsReload() checks if the current process does not exist.
 
-SetEditor() detects the active editor within the selected process. will throw an error if not in editor.
-EditorExists() checks if the current editor is still loaded in memory.
-EditorClosed() checks if the current editor (assuming it exists) has been closed.
+SetEditor() detects the active editor within the current process. will throw an error if not in editor.
+FetchEditor() sets process if needed, and then sets editor.
 EditorNeedsReload() checks if the current editor is closed or does not exist.
 
 SetHOM() finds the hit object manager and composer for the current editor.
 ReadHOM() reads objectRadius, stackOffset, and objects lists for the current HOM and composer.
-FetchHOM() sets editor if needed, and then sets and reads HOM.
+FetchHOM() fetches editor if needed, and then sets and reads HOM.
 
 SetBeatmap() finds the beatmap for the current HOM.
 ReadBeatmap() reads difficulty settings and filename for the current beatmap.
@@ -123,10 +121,13 @@ SetSelected() finds all selected objects for the current composer.
 ReadSelected() reads all found objects.
 FetchSelected() finds then reads, as above.
 
-ReadHovered() reads the hovered object for the current composer, returns whether an object is hovered.
-ReadBookmarks() reads bookmarks for the current HOM into int array.
+SetHovered() finds the hovered object for the current composer.
+ReadHovered() reads the object, returns whether an object is hovered.
+FetchHovered() finds then reads, as above. returns whether an object is hovered.
+
+FetchBookmarks() reads bookmarks for the current HOM into int array.
 SnapPosition() float coordinates of snap position for the current composer.
 EditorTime() gets the timeline position for the current editor.
 
-FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects.
+FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects, FetchBookmarks.
 ```
