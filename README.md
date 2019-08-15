@@ -92,7 +92,7 @@ HitObject
 ```
 ## available methods:
 ```
-SetProcess(n = 0) matches the nth process named "osu!..." with module "osu!.exe". will throw an error if not in osu.
+SetProcess(n = 0) matches the nth process "osu!..." with module "osu!.exe". will throw an error if not in osu.
 ProcessNeedsReload() checks if the current process does not exist.
 
 SetEditor() detects the active editor within the current process. will throw an error if not in editor.
