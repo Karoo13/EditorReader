@@ -79,6 +79,8 @@ HitObject
   IsCircle()
   IsSlider()
     CurveType
+    X2
+    Y2
     sliderCurvePoints
     SoundTypeList
     SampleSetList
