@@ -133,3 +133,12 @@ EditorTime() gets the timeline position for the current editor.
 
 FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects, FetchBookmarks.
 ```
+## notes:
+```
+the Set and Read methods are not very useful, use fetch for everything unless you want to micro-optimize.
+SetProcess has a match nth parameter in case you are running multiple osu instances and need to choose.
+FetchAll is designed to collect all the (non-storyboard) volatile information for reconstructing the map.
+information like metadata is not collected since it will always be the same as in the file.
+the hovered object slot seems to only apply to the slider with its anchors visible.
+slider X2 and Y2 are the coordinates of the other end. it may not be correct after you round the object.
+```
