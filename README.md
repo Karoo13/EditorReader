@@ -34,6 +34,8 @@ EditorReader
   ApproachRate
   SliderMultiplier
   SliderTickRate
+  PreviewTime
+  StackLeniency
   controlPoints
   numControlPoints
   hitObjects
