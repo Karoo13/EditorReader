@@ -4,7 +4,6 @@ reads data from the osu! editor for use in mapping tools.
 ## how to use
 ```
 namespace Editor_Reader
-compile as -platform:x86
 
 FetchHOM() for the current process, will find the editor and get the editor's hit object manager and composer.
   EditorTime() for the current editor, gets the timeline position.
