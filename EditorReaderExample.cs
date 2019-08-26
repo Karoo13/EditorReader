@@ -6,8 +6,6 @@ public class EditorReaderExample
 {
     public static void Main()
     {
-        Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
-        
         EditorReader reader = new EditorReader();
         reader.FetchAll();
         
@@ -34,13 +32,13 @@ public class EditorReaderExample
         for (int i = 0; i < reader.numBookmarks; i++)
             Console.WriteLine(reader.bookmarks[i]);
         
-        Console.WriteLine(reader.SnapPosition());
-        
         //Console.WriteLine("Hit Objects:");
         //for (int i = 0; i < reader.numObjects; i++)
         //    Console.WriteLine(reader.hitObjects[i].ToString());
         
         while(true){
+            Console.WriteLine(reader.SnapPosition());
+            
             reader.FetchSelected();
             Console.WriteLine("Selected Hit Objects:");
             for (int i = 0; i < reader.numSelected; i++)
