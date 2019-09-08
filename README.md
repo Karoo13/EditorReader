@@ -35,6 +35,7 @@ EditorReader
   SliderTickRate
   PreviewTime
   StackLeniency
+  TimelineZoom
   controlPoints
   numControlPoints
   hitObjects
@@ -124,13 +125,21 @@ SetSelected() finds all selected objects for the current composer.
 ReadSelected() reads all found objects.
 FetchSelected() finds then reads, as above.
 
+SetCurrent() finds the current (being placed) object for the current composer.
+ReadCurrent() reads the object, returns whether an object is being placed.
+FetchCurrent() finds then reads, as above. returns whether an object is being placed.
+
 SetHovered() finds the hovered object for the current composer.
 ReadHovered() reads the object, returns whether an object is hovered.
 FetchHovered() finds then reads, as above. returns whether an object is hovered.
 
 FetchBookmarks() reads bookmarks for the current HOM into int array.
-SnapPosition() float coordinates of snap position for the current composer.
-EditorTime() gets the timeline position for the current editor.
+ComposeTool() tool (select, normal, slider, spinner, hold) for the current composer.
+GridSize() the grid size for the current composer.
+DistanceSnap() the distance snap value for the current composer.
+SnapPosition() float tuple of snap position for the current composer.
+SnapDivisor() the beat snap divisor for the current editor.
+EditorTime() the timeline position for the current editor.
 
 FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects, FetchBookmarks.
 ```
