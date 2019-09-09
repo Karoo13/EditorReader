@@ -125,10 +125,6 @@ SetSelected() finds all selected objects for the current composer.
 ReadSelected() reads all found objects.
 FetchSelected() finds then reads, as above.
 
-SetCurrent() finds the current (being placed) object for the current composer.
-ReadCurrent() reads the object, returns whether an object is being placed.
-FetchCurrent() finds then reads, as above. returns whether an object is being placed.
-
 SetHovered() finds the hovered object for the current composer.
 ReadHovered() reads the object, returns whether an object is hovered.
 FetchHovered() finds then reads, as above. returns whether an object is hovered.
@@ -136,9 +132,9 @@ FetchHovered() finds then reads, as above. returns whether an object is hovered.
 FetchBookmarks() reads bookmarks for the current HOM into int array.
 ComposeTool() tool (select, normal, slider, spinner, hold) for the current composer.
 GridSize() the grid size for the current composer.
-DistanceSnap() the distance snap value for the current composer.
+DistanceSpacing() the distance snap value for the current composer.
 SnapPosition() float tuple of snap position for the current composer.
-SnapDivisor() the beat snap divisor for the current editor.
+BeatDivisor() the beat snap divisor for the current editor.
 EditorTime() the timeline position for the current editor.
 
 FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects, FetchBookmarks.
@@ -149,6 +145,7 @@ the Set and Read methods are not very useful, use fetch for everything unless yo
 SetProcess has a match nth parameter in case you are running multiple osu instances and need to choose.
 FetchAll is designed to collect all the (non-storyboard) volatile information for reconstructing the map.
 information like metadata is not collected since it will always be the same as in the file.
-the hovered object slot seems to only apply to the slider with its anchors visible.
+the hovered object is the slider with its anchors visible or an object you are about to stack on.
 slider X2 and Y2 are the coordinates of the other end. it may not be correct after you round the object.
+inconsistent capitalization and naming is based on the corresponding variable names in osu.
 ```
