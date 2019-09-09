@@ -95,6 +95,7 @@ HitObject
 ## available methods:
 ```
 SetProcess(n = 0) matches the nth process "osu!..." with module "osu!.exe". will throw an error if not in osu.
+ProcessTitle() main window title for the current process. ProcessTitle().EndsWith(".osu") may be useful.
 ProcessNeedsReload() checks if the current process does not exist.
 
 SetEditor() detects the active editor within the current process. will throw an error if not in editor.
