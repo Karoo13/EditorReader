@@ -129,6 +129,10 @@ SetHovered() finds the hovered object for the current composer.
 ReadHovered() reads the object, returns whether an object is hovered.
 FetchHovered() finds then reads, as above. returns whether an object is hovered.
 
+SetSliderPlacement() finds the slider being placed for the current composer.
+ReadSliderPlacement() reads the slider, returns whether a slider is being placed.
+FetchSliderPlacement() finds then reads, as above. returns whether a slider is being placed.
+
 FetchBookmarks() reads bookmarks for the current HOM into int array.
 ComposeTool() tool (select, normal, slider, spinner, hold) for the current composer.
 GridSize() the grid size for the current composer.
