@@ -95,8 +95,8 @@ HitObject
 ## available methods:
 ```
 SetProcess(n = 0) matches the nth process "osu!..." with module "osu!.exe". will throw an error if not in osu.
-ProcessTitle() main window title for the current process. ProcessTitle().EndsWith(".osu") may be useful.
 ProcessNeedsReload() checks if the current process does not exist.
+ProcessTitle() main window title for the current process. returns empty string if the process does not exist.
 
 SetEditor() detects the active editor within the current process. will throw an error if not in editor.
 FetchEditor() sets process if needed, and then sets editor.
@@ -146,6 +146,7 @@ FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects, FetchBookma
 ```
 ## notes:
 ```
+ProcessTitle().EndsWith(".osu") may be useful for checking if the user is editing.
 the Set and Read methods are not very useful, use fetch for everything unless you want to micro-optimize.
 SetProcess has a match nth parameter in case you are running multiple osu instances and need to choose.
 FetchAll is designed to collect all the (non-storyboard) volatile information for reconstructing the map.
