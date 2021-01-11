@@ -83,6 +83,7 @@ HitObject
     CurveType
     X2
     Y2
+    curveLength
     sliderCurvePoints
     SoundTypeList
     SampleSetList
@@ -147,11 +148,11 @@ FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects, FetchBookma
 ## notes:
 ```
 ProcessTitle().EndsWith(".osu") may be useful for checking if the user is editing.
-the Set and Read methods are not very useful, use fetch for everything unless you want to micro-optimize.
+the Set and Read methods are not very useful, use Fetch for everything unless you want to micro-optimize.
 SetProcess has a match nth parameter in case you are running multiple osu instances and need to choose.
 FetchAll is designed to collect all the (non-storyboard) volatile information for reconstructing the map.
 information like metadata is not collected since it will always be the same as in the file.
 the hovered object is the slider with its anchors visible, dragged object, or object you are about to stack on.
 slider X2 and Y2 are the coordinates of the other end. it may not be correct after you round the object.
-inconsistent capitalization and naming is based on the corresponding variable names in osu.
+inconsistent capitalization and naming is based on the corresponding variable names in osu, sorry.
 ```
