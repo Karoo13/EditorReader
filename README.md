@@ -60,17 +60,18 @@ ControlPoint
   ToString()
 
 HitObject
-  DeStack(stackOffset) move the object to its pre-stacking position.
+  DeStack() move the object to its pre-stacking position.
   Round() round all coordinates to nearest integer.
   X
   Y
+  BaseX
+  BaseY
   StartTime
   EndTime
   Type
   SoundType
   SpatialLength
   SegmentCount
-  StackCount
   SampleFile
   SampleVolume
   SampleSet
@@ -95,7 +96,7 @@ HitObject
 ```
 ## available methods:
 ```
-SetProcess(n = 0) matches the nth process "osu!..." with module "osu!.exe". will throw an error if not in osu.
+SetProcess() matches a process "osu!..." with module "osu!.exe". will throw an error if not in osu.
 ProcessNeedsReload() checks if the current process does not exist.
 ProcessTitle() main window title for the current process. returns empty string if the process does not exist.
 
@@ -149,10 +150,11 @@ FetchAll() FetchHOM, FetchBeatmap, FetchControlPoints, FetchObjects, FetchBookma
 ```
 ProcessTitle().EndsWith(".osu") may be useful for checking if the user is editing.
 the Set and Read methods are not very useful, use Fetch for everything unless you want to micro-optimize.
-SetProcess has a match nth parameter in case you are running multiple osu instances and need to choose.
+SetProcess(forceProcess = null) also accepts a process argument if you already know which one to provide.
 FetchAll is designed to collect all the (non-storyboard) volatile information for reconstructing the map.
 information like metadata is not collected since it will always be the same as in the file.
 the hovered object is the slider with its anchors visible, dragged object, or object you are about to stack on.
+BaseX and BaseY are X and Y before stacking. it is recommended to DeStack the object and use X and Y instead.
 slider X2 and Y2 are the coordinates of the other end. it may not be correct after you round the object.
 inconsistent capitalization and naming is based on the corresponding variable names in osu, sorry.
 ```
