@@ -1,6 +1,8 @@
 # EditorReader
 reads data from the osu! editor for use in mapping tools.
 
+system requirements: .NET Framework 4.6+ may be required.
+
 ## how to use
 ```
 namespace Editor_Reader
