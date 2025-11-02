@@ -80,7 +80,6 @@ HitObject
   SampleSetAdditions
   CustomSampleSet
   IsSelected
-  unifiedSoundAddition
   IsCircle()
   IsSlider()
     CurveType
@@ -88,6 +87,7 @@ HitObject
     Y2
     curveLength
     sliderCurvePoints
+    unifiedSoundAddition
     SoundTypeList
     SampleSetList
     SampleSetAdditionsList
